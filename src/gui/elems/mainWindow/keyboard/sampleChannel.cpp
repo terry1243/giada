@@ -220,6 +220,19 @@ geSampleChannel::geSampleChannel(int X, int Y, int W, int H, ID channelId)
 
 	end();
 
+	playButton->tooltip("Trigger sample");
+	arm->tooltip("Arm input recording");
+	status->tooltip("Sample playback status display");
+	mainButton->tooltip("Channel menu");
+	readActions->tooltip("Toggle action playback");
+	modeBox->tooltip("Loop mode");
+	mute->tooltip("Toggle mute");
+	solo->tooltip("Toggle solo");
+	vol->tooltip("Volume dial");
+#if defined(WITH_VST)
+	fx->tooltip("FX");
+#endif
+
 	resizable(mainButton);
 
 	m::model::ChannelsLock l(m::model::channels);
@@ -318,10 +331,10 @@ void geSampleChannel::cb_openMenu()
 			{"Volume",     0, menuCallback, (void*) Menu::CLEAR_ACTIONS_VOLUME},
 			{"Start/Stop", 0, menuCallback, (void*) Menu::CLEAR_ACTIONS_START_STOP},
 			{0},
+		{"Clear sample",   0, menuCallback, (void*) Menu::FREE_CHANNEL},
 		{"Rename", 0, menuCallback, (void*) Menu::RENAME_CHANNEL},
 		{"Clone",  0, menuCallback, (void*) Menu::CLONE_CHANNEL},
-		{"Free",   0, menuCallback, (void*) Menu::FREE_CHANNEL},
-		{"Delete", 0, menuCallback, (void*) Menu::DELETE_CHANNEL},
+		{"Remove channel", 0, menuCallback, (void*) Menu::DELETE_CHANNEL},
 		{0}
 	};
 

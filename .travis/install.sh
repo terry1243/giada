@@ -44,4 +44,11 @@ elif [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 	wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
 	chmod a+x linuxdeploy-x86_64.AppImage
 
+elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
+
+  git clone https://github.com/Microsoft/vcpkg.git
+  cd vcpkg
+  ./bootstrap-vcpkg.bat
+  ./vcpkg integrate install
+  
 fi

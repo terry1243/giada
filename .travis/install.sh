@@ -46,9 +46,13 @@ elif [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
-  git clone https://github.com/Microsoft/vcpkg.git
-  cd vcpkg
-  ./bootstrap-vcpkg.bat
-  ./vcpkg integrate install
-  
+	git clone https://github.com/Microsoft/vcpkg.git
+	cd vcpkg
+	./bootstrap-vcpkg.bat
+	./vcpkg integrate install
+
+	./vcpkg install libsndfile:x64-windows
+	./vcpkg install libsamplerate:x64-windows
+	./vcpkg install fltk:x64-windows
+	./vcpkg install rtmidi:x64-windows
 fi

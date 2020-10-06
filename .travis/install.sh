@@ -51,7 +51,6 @@ elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 	./bootstrap-vcpkg.bat
 	./vcpkg integrate install
 
-	echo "install deps"
 	./vcpkg install libsndfile:x64-windows
 	./vcpkg install libsamplerate:x64-windows
 	./vcpkg install fltk:x64-windows

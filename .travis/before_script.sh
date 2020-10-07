@@ -20,10 +20,6 @@ elif [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
-	# C:/Users/travis/build/monocasual/giada
-
-	echo "${TRAVIS_BUILD_DIR}"
-
 	cmake -S . -B build/ -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=Release \
 		-DCMAKE_TOOLCHAIN_FILE="${TRAVIS_BUILD_DIR}"/vcpkg/scripts/buildsystems/vcpkg.cmake \
 		-DCMAKE_PREFIX_PATH="${TRAVIS_BUILD_DIR}"/vcpkg/installed/x64-windows \

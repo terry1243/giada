@@ -13,5 +13,10 @@ if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 	make -C build/ -j 2
 	if [[ $TRAVIS_TAG == '' ]]; then  # Regular commit, run tests
 		xvfb-run ./build/giada --run-tests	
-	fi     	
+	fi
+
+elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
+
+	msbuild build/giada.sln
+	
 fi

@@ -17,11 +17,8 @@ if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
-	# https://stackoverflow.com/questions/61874708/how-can-i-build-visual-studio-2019-projects-on-travis-ci
-	
-	echo "testing"
-	ls "/c"
-	ls "/c/Program Files (x86)"
-	ls "/c/Program Files (x86)/Microsoft Visual Studio"
-	"/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin/MSBuild.exe" build/giada.sln
+	"/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin/MSBuild.exe" \
+		-p:Configuration=Release \
+		-p:Platform=x64 \
+		build/giada.sln
 fi

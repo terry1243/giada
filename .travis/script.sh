@@ -17,6 +17,6 @@ if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
-	msbuild build/giada.sln
+	"/c/Program Files (x86)/Microsoft Visual Studio/2015/Community/MSBuild/Current/Bin/MSBuild.exe" build/giada.sln
 	
 fi

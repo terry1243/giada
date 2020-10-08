@@ -17,6 +17,8 @@ if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
+	# https://stackoverflow.com/questions/61874708/how-can-i-build-visual-studio-2019-projects-on-travis-ci
+	
 	echo "testing"
 	ls "/c"
 	ls "/c/Program Files (x86)"

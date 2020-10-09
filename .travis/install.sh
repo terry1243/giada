@@ -55,4 +55,13 @@ elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 	./vcpkg install libsamplerate:x64-windows
 	./vcpkg install fltk:x64-windows
 	./vcpkg install rtmidi:x64-windows
+
+	# For some reason CMake grabs the debug build of RtMidi library (located in 
+	# /c/vcpkg/installed/x64-windows/debug) instead of the release build located 
+	# in /c/vcpkg/installed/x64-windows. This screws up building Giada in 
+	# release mode. Workaround: remove the debug build of RtMidi from the folder 
+	# above.
+	# TODO - do this only in release mode
+
+	rm -rf installed/x64-windows/debug/lib/fltk*
 fi

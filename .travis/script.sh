@@ -19,6 +19,6 @@ elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
 	#"/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin/MSBuild.exe" build/giada.sln //t:giada //p:Configuration="Release"
 
-	"/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin/MSBuild.exe" -t:giada -maxCpuCount -p:CL_MPCount=2 -p:Configuration="Release" giada.sln
+	"/c/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin/MSBuild.exe" -t:giada -maxCpuCount -p:CL_MPCount=2 -p:Configuration="Release" build/giada.sln
 
 fi

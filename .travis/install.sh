@@ -51,23 +51,23 @@ elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 	choco install -y visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
 
 	# Install vcpkg + Giada dependencies
-	
+
 	git clone https://github.com/Microsoft/vcpkg.git
 	cd vcpkg
 	./bootstrap-vcpkg.bat
 	./vcpkg integrate install
 
-	./vcpkg install libsndfile:x86-windows
-	./vcpkg install libsamplerate:x86-windows
-	./vcpkg install fltk:x86-windows
-	./vcpkg install rtmidi:x86-windows
+	./vcpkg install libsndfile:x64-windows
+	./vcpkg install libsamplerate:x64-windows
+	./vcpkg install fltk:x64-windows
+	./vcpkg install rtmidi:x64-windows
 
 	# For some reason CMake grabs the debug build of RtMidi library (located in 
-	# /c/vcpkg/installed/x86-windows/debug) instead of the release build located 
-	# in /c/vcpkg/installed/x86-windows. This screws up building Giada in 
+	# /c/vcpkg/installed/x64-windows/debug) instead of the release build located 
+	# in /c/vcpkg/installed/x64-windows. This screws up building Giada in 
 	# release mode. Workaround: remove the debug build of RtMidi from the folder 
 	# above.
 	# TODO - do this only in release mode
 
-	rm -rf installed/x86-windows/debug/lib/fltk*
+	rm -rf installed/x64-windows/debug/lib/fltk*
 fi

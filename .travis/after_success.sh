@@ -107,6 +107,6 @@ elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
 	echo "Make zip archive, save it to to dist/"
 	
-	zip -r dist/giada-$TRAVIS_TAG-x86_64-windows.zip temp/*
+	7z a -tzip dist/giada-$TRAVIS_TAG-x86_64-windows.zip temp/*
 
 fi

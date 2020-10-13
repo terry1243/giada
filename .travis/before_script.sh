@@ -20,7 +20,7 @@ elif [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
-	cmake -S . -B build/ -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=Release \
+	cmake -S . -B build/ -G "Visual Studio 16 2019" -DCMAKE_BUILD_TYPE=Release \
 		-DCMAKE_TOOLCHAIN_FILE="${TRAVIS_BUILD_DIR}"/vcpkg/scripts/buildsystems/vcpkg.cmake \
 		-DCMAKE_PREFIX_PATH="${TRAVIS_BUILD_DIR}"/vcpkg/installed/x64-windows \
 		-DINCLUDE_DIRS="${TRAVIS_BUILD_DIR}"/vcpkg/installed/x64-windows/include

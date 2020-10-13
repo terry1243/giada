@@ -44,6 +44,6 @@ deploy:
   skip_cleanup: true
   acl: public_read
   on:
-    tags: true
-    branch: "master"
+    tags: false          # true
+    branch: "travis-windows"    # "master"
   local_dir: dist

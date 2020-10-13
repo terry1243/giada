@@ -46,6 +46,12 @@ elif [[ $TRAVIS_OS_NAME == 'linux' ]]; then
 
 elif [[ $TRAVIS_OS_NAME == 'windows' ]]; then
 
+	# Install Visual Studio 2019 build tools
+
+	choco install -y visualstudio2019buildtools --package-parameters "--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64"
+
+	# Install vcpkg + Giada dependencies
+	
 	git clone https://github.com/Microsoft/vcpkg.git
 	cd vcpkg
 	./bootstrap-vcpkg.bat
